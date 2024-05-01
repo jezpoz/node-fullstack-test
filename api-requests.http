@@ -1,0 +1,41 @@
+GET http://localhost:3000/users
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Name"
+}
+###
+
+GET http://localhost:3000/users/<userId>
+###
+
+GET http://localhost:3000/users/<userId>/posts
+###
+
+GET http://localhost:3000/posts
+###
+
+GET http://localhost:3000/posts/<postId>
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "Hello world",
+  "content": "Hello world",
+  "authorId": "<userId>"
+}
+###
+
+PUT http://localhost:3000/posts/<postId>
+Content-Type: application/json
+
+{
+  "title": "Hello world from User",
+  "content": "Hello world from User"
+}
+###
