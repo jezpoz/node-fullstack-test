@@ -1,0 +1,53 @@
+{
+  "name": "fullstack-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/db.js",
+  "module": "./dist/db.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/db.mjs",
+        "types": "./dist/db.d.mts"
+      },
+      "require": {
+        "default": "./dist/db.js",
+        "types": "./dist/db.d.ts"
+      }
+    },
+    "./schema": {
+      "import": {
+        "default": "./dist/schema.mjs",
+        "types": "./dist/schema.d.mts"
+      },
+      "require": {
+        "default": "./dist/schema.js",
+        "types": "./dist/schema.d.ts"
+      }
+    }
+  },
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "introspect": "drizzle-key introspect:pg --config=drizzle.config.ts",
+    "generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
+    "migrate": "tsx -r dotenv/config ./src/migrate.ts dotenv_config_path=../../.env",
+    "studio": "drizzle-kit studio"
+  },
+  "author": "Jesper Førisdahl",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.9",
+    "drizzle-zod": "^0.5.1",
+    "pg": "^8.11.5",
+    "zod": "^3.23.5"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.5",
+    "drizzle-kit": "^0.20.17",
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.2",
+    "tsx": "^4.8.2",
+    "typescript": "^5.4.5"
+  }
+}

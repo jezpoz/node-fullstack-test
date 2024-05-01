@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 import { type NodePgDatabase, drizzle } from "drizzle-orm/node-postgres";
 
-import * as schema from './schema';
+import * as schema from "./schema/schema";
 
 if (
   !process.env.DB_NAME ||
@@ -20,4 +20,5 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
 });
 
-export const db: NodePgDatabase<typeof schema> = drizzle(pool, { schema })
+export const db: NodePgDatabase<typeof schema> = drizzle(pool, { schema });
+export { eq } from "drizzle-orm";
