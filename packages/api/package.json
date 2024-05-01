@@ -2,10 +2,11 @@
   "name": "api",
   "version": "1.0.0",
   "description": "The API",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'",
     "build": "tsup src/index.ts",
+    "start": "node dist/index.cjs",
     "introspect": "drizzle-kit introspect:pg --config=drizzle.config.ts",
     "generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
     "migrate": "tsx -r dotenv/config src/db/migrate.ts",
@@ -14,6 +15,7 @@
   "author": "Jesper M. Førisdahl",
   "license": "ISC",
   "dependencies": {
+    "fullstack-db": "*",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.9",
