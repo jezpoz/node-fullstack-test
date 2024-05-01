@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "dotenv -- npm run dev --ws",
-    "migrate": "dotenv -- npm run migrate -w utils/fullstack-db"
+    "dev": "dotenv -- npm run build-schema && dotenv -- npm run dev --ws",
+    "migrate": "dotenv -- npm run migrate -w utils/fullstack-db",
+    "build-schema": "npm run build -w utils/fullstack-db"
   },
   "author": "Jesper M. Førisdahl",
   "license": "ISC",

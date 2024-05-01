@@ -30,13 +30,12 @@
     "build": "rimraf dist && tsup",
     "introspect": "drizzle-key introspect:pg --config=drizzle.config.ts",
     "generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
-    "migrate": "tsx -r dotenv/config ./src/migrate.ts dotenv_config_path=../../.env",
+    "migrate": "tsx -r ./src/migrate.ts",
     "studio": "drizzle-kit studio"
   },
   "author": "Jesper Førisdahl",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.9",
     "drizzle-zod": "^0.5.1",
     "pg": "^8.11.5",
